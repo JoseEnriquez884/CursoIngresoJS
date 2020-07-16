@@ -3,15 +3,14 @@ Debemos lograr tomar nombre y edad por ID y mostrarlos concatenados
 ej.: "Usted se llama José y tiene 66 años" 	*/
 function mostrar()
 {	
-	var nombreIngresado;
-	var edadIngresada;
+	var nombre;//declaro variable
+	var edad;
 
-	nombreIngresado=txtIdNombre.value;
-	edadIngresada=txtIdEdad.value;
+	nombre=txtIdNombre.value;//cargo o defino variable
+	edad=txtIdEdad.value;
 
-	alert("Usted se llama "+nombreIngresado+" y tiene "+edadIngresada+" años")
-	//alert("Usted se llama "+nombreIngresado);
-	//alert("Y tiene "+edadIngresada+" años");
-	//alert("Usted se llama José y tiene 66 años");
+	alert("Usted se llama "+nombre+" y tiene "+edad+" años");//muestro el valor de la variable
+	//alert("Usted se llama "+nombre);
+	//alert("y tiene "+edad+" años");
 }
 

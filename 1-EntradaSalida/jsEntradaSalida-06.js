@@ -6,7 +6,7 @@ function sumar()
 {
 	var numeroUno;
 	var numeroDos;
-	var resultado;
+	var suma;
 
 	numeroUno=txtIdNumeroUno.value;
 	numeroUno=parseInt(numeroUno);
@@ -14,14 +14,14 @@ function sumar()
 	numeroDos=txtIdNumeroDos.value;
 	numeroDos=parseInt(numeroDos);
 
-	resultado=numeroUno+numeroDos;
+	suma=numeroUno+numeroDos;
 
-	alert("El resultado es: "+resultado);
+	alert("La suma es: "+suma);
+
 	//txtIdNumeroUno
 	//txtIdNumeroDos
 
 	/* var dato;
-
 	dato=parseInt(3);//ok
 	dato=parseInt("z999");//NaN
 	dato=parseInt("");//NaN
