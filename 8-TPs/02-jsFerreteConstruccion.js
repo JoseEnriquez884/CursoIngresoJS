@@ -9,29 +9,67 @@ function Rectangulo ()
     //txtIdLargo
     //txtIdAncho
     //txtIdRadio
-    var largo;
-    var ancho;
-    var alambreLargo;
-    var alambreAncho;
-    var medida;
+    var largoIngresado;
+    var anchoIngresado;
+    var sumaDeLadosLargo;
+    var sumaDeLadosAncho;
+    var perimetroDelRectangulo;
+    var alambreNecesario;
 
-    largo=txtIdLargo.value;
-    largo=parseInt(largo);
+    largoIngresado=txtIdLargo.value;
+    largoIngresado=parseInt(largoIngresado);
 
-    ancho=txtIdAncho.value;
-    ancho=parseInt(ancho);
+    anchoIngresado=txtIdAncho.value;
+    anchoIngresado=parseInt(anchoIngresado);
 
-    alambreLargo=largo*2;
-    alambreAncho=ancho*2;
+    sumaDeLadosLargo=largoIngresado*2;
+    sumaDeLadosAncho=anchoIngresado*2;
 
-    medida=alambreLargo+alambreAncho;
-    alert(medida);
+    perimetroDelRectangulo=sumaDeLadosLargo+sumaDeLadosAncho;
+
+    alambreNecesario=perimetroDelRectangulo*3;
+
+    alert("Se necesita "+alambreNecesario+"mts de alambre");
 }
 function Circulo () 
 {
-	
+    var radioIngresado;
+    var radioCalculado;
+    var alambreNecesario;
+
+    radioIngresado=txtIdRadio.value;
+    radioIngresado=parseInt(radioIngresado);
+
+    radioCalculado=2*radioIngresado*3.14;
+
+    alambreNecesario=radioCalculado*3;
+
+    alert("Se necesita "+alambreNecesario+"mts de alambre");
 }
 function Materiales () 
 {
-	
+    var bolsasDeCemento;
+    var bolsasDeCal;
+    var largoIngresado;
+    var anchoIngresado;
+    var superficie;
+    var bolsasDeCalNecesarias;
+    var bolsasDeCementoNecesarias;
+    
+
+    bolsasDeCemento=2;
+    bolsasDeCal=3;
+
+    largoIngresado=txtIdLargo.value;
+    largoIngresado=parseInt(largoIngresado);
+
+    anchoIngresado=txtIdAncho.value;
+    anchoIngresado=parseInt(anchoIngresado);
+
+    superficie=largoIngresado*anchoIngresado;
+
+    bolsasDeCementoNecesarias=bolsasDeCemento*superficie;
+    bolsasDeCalNecesarias=bolsasDeCal*superficie;
+
+    alert("Se necesitan "+bolsasDeCementoNecesarias+" bolsas de cemento y "+bolsasDeCalNecesarias+" bolsas de cal");
 }

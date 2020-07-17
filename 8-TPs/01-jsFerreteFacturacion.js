@@ -13,7 +13,7 @@ function Sumar ()
     var precioTres;
     var sumaDePrecios;
 
-    precioUno=txtIdPrecioUno.value
+    precioUno=txtIdPrecioUno.value;
     precioUno=parseInt(precioUno);
 
     precioDos=txtIdPrecioDos.value;
@@ -33,7 +33,7 @@ function Promedio ()
     var precioTres;
     var promedioDePrecios;
 
-    precioUno=txtIdPrecioUno.value
+    precioUno=txtIdPrecioUno.value;
     precioUno=parseInt(precioUno);
 
     precioDos=txtIdPrecioDos.value;
@@ -55,7 +55,7 @@ function PrecioFinal ()
     var porcentajeDeIva;
     var precioFinal;
 
-    precioUno=txtIdPrecioUno.value
+    precioUno=txtIdPrecioUno.value;
     precioUno=parseInt(precioUno);
 
     precioDos=txtIdPrecioDos.value;
