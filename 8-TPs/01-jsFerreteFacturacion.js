@@ -53,7 +53,7 @@ function PrecioFinal ()
     var precioTres;
     var sumaDePrecios;
     var porcentajeDeIva;
-    //var precioFinal;
+    var precioFinal;
 
     precioUno=txtIdPrecioUno.value
     precioUno=parseInt(precioUno);
