@@ -11,7 +11,7 @@ function mostrar()
     porcentajeIngresado=prompt("Ingrese porcentaje");
     porcentajeIngresado=parseInt(porcentajeIngresado);
 
-    porcentajeCalculado=(precioIngresado*porcentajeIngresado)/100
+    porcentajeCalculado=(precioIngresado*porcentajeIngresado)/100;
 
     precioConDescuento=precioIngresado-porcentajeCalculado;
 
