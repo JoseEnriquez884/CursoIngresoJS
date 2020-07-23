@@ -9,17 +9,20 @@ function mostrar()
 
 	edadIngresada=parseInt(edadIngresada);
 
-	if(edadIngresada>17)
-	{
-		alert("Es mayor de edad");
-	}
-
-	else //if(edadIngresada<18)
+	if(edadIngresada<18)
 	{
 		alert("Es menor de edad");
 	}
+	else
+	{
+		alert("Es mayor de edad");
+	}
+}//FIN DE LA FUNCIÓN
 
-	/*var edadInresada;
+
+
+
+/*var edadInresada;
 	edadInresada=txtIdEdad.value;			
 	edadInresada=parseInt(edadInresada);
 	var valorDeVerdad;
@@ -98,4 +101,3 @@ function mostrar()
 	{
 		alert("menor");
 	}*/
-}//FIN DE LA FUNCIÓN

@@ -14,6 +14,15 @@ function mostrar()
 		alert("Es adolescente");
 	}
 }//FIN DE LA FUNCIÓN
+
+
+
+
+
+
+
+
+
 /*
 //el 4
 function mostrar()

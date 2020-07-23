@@ -11,12 +11,15 @@ function mostrar()
 	{
 		alert("Niño");
 	}
-	if(edadIngresada>18)
-	{
-		alert("Mayor de edad");
-	}
 	else
 	{
-		alert("Adolescente");
+		if(edadIngresada>17)
+		{
+			alert("Mayor");
+		}
+		else
+		{
+			alert("Adolescente");
+		}
 	}
 }//FIN DE LA FUNCIÓN
