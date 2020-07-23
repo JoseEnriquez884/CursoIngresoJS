@@ -49,3 +49,13 @@
 [0722/201150.847:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
 [0722/201150.986:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
 [0722/201150.987:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
+[0723/083003.068:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
+[0723/083003.070:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0723/083003.071:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
+[0723/084145.249:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
+[0723/084145.252:ERROR:exit_code_watcher_win.cc(87)] Failed to wait for process exit or stop event
+[0723/084145.257:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0723/084145.258:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
+[0723/090301.483:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
+[0723/090301.486:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: Ha terminado la canalización. (0x6D)
+[0723/090301.487:ERROR:file_io_win.cc(179)] CreateFile C:\Program Files\temp\settings.dat: Acceso denegado. (0x5)
