@@ -21,9 +21,17 @@ function CalcularPrecio ()
 
     marcaLamparas=Marca.value;
 
+    
+    
+    
+    
+    
+    
+    
+    
     //console.log(marcaLamparas+" "+cantidadLamparas);
 
-    if(cantidadLamparas>5)
+    /*if(cantidadLamparas>5)
     {
         precioBruto=cantidadLamparas*35;
         descuento=precioBruto*50/100
@@ -46,5 +54,5 @@ function CalcularPrecio ()
         }
     }
 
-    txtIdprecioDescuento.value=precioFinal;
+    txtIdprecioDescuento.value=precioFinal;*/
 }
