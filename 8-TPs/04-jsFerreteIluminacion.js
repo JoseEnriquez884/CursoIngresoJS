@@ -21,6 +21,24 @@ function CalcularPrecio ()
 
     marcaLamparas=Marca.value;
 
+    if(cantidadLamparas>5)
+    {
+        precioBruto=cantidadLamparas*35;
+        descuento=precioBruto*50/100;
+        precioFinal=precioBruto-descuento;
+    }else
+    {
+        if(cantidadLamparas==5)
+        {
+            if(marcaLamparas=="ArgentinaLuz")
+            {
+                precioBruto=cantidadLamparas*35;
+                descuento=precioBruto*40/100;
+                precioFinal=precioBruto-descuento; 
+            }
+        }
+    }
+
     
     
     
