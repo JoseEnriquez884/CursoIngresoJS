@@ -5,15 +5,15 @@ function mostrar()
 	//tomo la edad
 	//txtIdEdad
 	var edadIngresada;
-	var estado;
+	var situacionSentimental;
 
 	edadIngresada=txtIdEdad.value;
 	edadIngresada=parseInt(edadIngresada);
 
-	estado=estadoCivil.value;
+	situacionSentimental=estadoCivil.value;
 
-	if(edadIngresada<18 && estado!="Soltero")
+	if(edadIngresada<18 && situacionSentimental!="Soltero")
 	{
-		alert("Es muy pequeño para NO ser soltero.");
+		alert("es muy pequeño para NO ser soltero");
 	}
 }//FIN DE LA FUNCIÓN
