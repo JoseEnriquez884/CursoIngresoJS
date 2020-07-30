@@ -1,6 +1,6 @@
 /*4.	Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
-A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. x
+A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
 B.	Si compra 5  lamparitas bajo consumo marca "ArgentinaLuz" se hace un descuento del 40 % y si es de otra marca el descuento es del 30%.
 C.	Si compra 4  lamparitas bajo consumo marca "ArgentinaLuz" o “FelipeLamparas” se hace un descuento del 25 % y si es de otra marca el descuento es del 20%.
 D.	Si compra 3  lamparitas bajo consumo marca "ArgentinaLuz"  el descuento es del 15%, si es  “FelipeLamparas” se hace un descuento del 10 % y si es de otra marca un 5%.
@@ -20,17 +20,86 @@ function CalcularPrecio ()
     var impuestoAgregado;
     var precioConImpuesto;
 
+    //tomo id y parseo cantidad de lamparas
     cantidadLamparas=txtIdCantidad.value;
     cantidadLamparas=parseInt(cantidadLamparas);
 
+    //tomo id de las marcas de lamparas
     marcaLamparas=Marca.value;
 
+    //precio de cada lampara
     precioLampara=35;
 
+    //calculo el precio bruto sin descuento
     precioBruto=cantidadLamparas*precioLampara;
 
-    //descuentoCalculado=precioBruto*porcentajeDescuento/100;
+//             -----Agregado A con SWITCH-----             
 
+    switch(cantidadLamparas)
+    {
+        case 3:
+            switch(marcaLamparas)
+            {
+                case "ArgentinaLuz":
+                    porcentajeDescuento=15;
+                    break;
+                case "FelipeLamparas":
+                    porcentajeDescuento=10;
+                    break;
+                default:
+                    porcentajeDescuento=5;
+                    break;
+            }
+            break;
+        case 4:
+            switch(marcaLamparas)
+            {
+                case "ArgentinaLuz":
+                case "FelipeLamparas":
+                    porcentajeDescuento=25;
+                    break;
+                default:
+                    porcentajeDescuento=20;
+                    break;
+            }
+            break;
+        case 5:
+            switch(marcaLamparas)
+            {
+                case "ArgentinaLuz":
+                    porcentajeDescuento=40;
+                    break;
+                default:
+                    porcentajeDescuento=30;
+                    break;
+            }
+            break;
+        default:
+            porcentajeDescuento=50;
+            break;
+    }
+
+    descuentoCalculado=precioBruto*porcentajeDescuento/100;
+    precioFinalConDescuento=precioBruto-descuentoCalculado;
+    txtIdprecioDescuento.value=precioFinalConDescuento;
+
+    //if(precioFinalConDescuento>120)
+    switch(precioFinalConDescuento)
+    {
+        case 120:
+        default:
+            impuestoAgregado=precioFinalConDescuento*10/100;
+            precioConImpuesto=precioFinalConDescuento+impuestoAgregado;
+            alert("IIBB usted pago "+precioConImpuesto+" siendo "+impuestoAgregado+" el impuesto que se pago");
+            break;        
+    }
+    
+
+
+//             -----Agregado A con IF ELSE-----
+
+    //descuentoCalculado=precioBruto*porcentajeDescuento/100;
+    /*
     if(cantidadLamparas>5)
     {
         porcentajeDescuento=50;
@@ -89,37 +158,5 @@ function CalcularPrecio ()
         precioConImpuesto=precioFinalConDescuento+impuestoAgregado;
         alert("IIBB usted pago "+precioConImpuesto+" siendo "+impuestoAgregado+" el impuesto que se pago");
     }
-    
-    
-    
-    
-    
-    
-    
-    //console.log(marcaLamparas+" "+cantidadLamparas);
-
-    /*if(cantidadLamparas>5)
-    {
-        precioBruto=cantidadLamparas*35;
-        descuento=precioBruto*50/100
-        precioFinal=precioBruto-descuento;
-    }else
-    {
-        if(cantidadLamparas==5)
-        {
-            if(marcaLamparas=="ArgentinaLuz")
-            {
-                precioBruto=cantidadLamparas*35;
-                descuento=precioBruto*40/100
-                precioFinal=precioBruto-descuento; 
-            }else
-            {
-                precioBruto=cantidadLamparas*35;
-                descuento=precioBruto*30/100
-                precioFinal=precioBruto-descuento;
-            }
-        }
-    }
-
-    txtIdprecioDescuento.value=precioFinal;*/
+    */
 }

@@ -2,9 +2,11 @@ function mostrar()
 {
 	var estacionIngresada
 	var destinoIngresado;
-	var porcentaje;
+	var porcentajeCalculado;
 	var precioBase;
 	var precioFinal;
+	var primerPorcentajeCalculado;
+	var segundoPorcentajeCalculado;
 	precioBase=15000;
 
 	estacionIngresada= txtIdEstacion.value;
@@ -13,24 +15,24 @@ function mostrar()
 	destinoIngresado=txtIdDestino.value;
 	alert(destinoIngresado);
 
+	primerPorcentajeCalculado=precioBase*10/100;//aca saco el 10% (por ciento)
+	segundoPorcentajeCalculado=precioBase*20/100;//aca saco el 20% (por ciento)
+
 	switch(estacionIngresada)
 	{
 		case "Invierno":
 			switch(destinoIngresado)
 			{
 				case "Bariloche":
-					porcentaje=precioBase*20/100;
-					precioFinal=precioBase+porcentaje;
+					precioFinal=precioBase+segundoPorcentajeCalculado;
 					alert(precioFinal);
 					break;
 				case "Mar del plata":
-					porcentaje=precioBase*20/100;
-					precioFinal=precioBase-porcentaje;
+					precioFinal=precioBase-segundoPorcentajeCalculado;
 					alert(precioFinal);
 					break;
 				default:
-					porcentaje=precioBase*10/100;
-					precioFinal=precioBase-porcentaje;
+					precioFinal=precioBase-primerPorcentajeCalculado;
 					alert(precioFinal);
 					break;
 			}break;
@@ -38,18 +40,15 @@ function mostrar()
 			switch(destinoIngresado)
 			{
 				case "Bariloche":
-					porcentaje=precioBase*20/100;
-					precioFinal=precioBase-porcentaje;
+					precioFinal=precioBase-segundoPorcentajeCalculado;
 					alert(precioFinal);
 					break;
 				case "Mar del plata":
-					porcentaje=precioBase*20/100;
-					precioFinal=precioBase+porcentaje;
+					precioFinal=precioBase+segundoPorcentajeCalculado;
 					alert(precioFinal);
 					break;
 				default:
-					porcentaje=precioBase*10/100;
-					precioFinal=precioBase+porcentaje;
+					precioFinal=precioBase+primerPorcentajeCalculado;
 					alert(precioFinal);
 					break;
 			}break;
@@ -60,12 +59,11 @@ function mostrar()
 					alert(precioBase);
 					break;
 				default:
-					porcentaje=precioBase*10/100;
-					precioFinal=precioBase+porcentaje;
+					precioFinal=precioBase+primerPorcentajeCalculado;
 					alert(precioFinal);
 					break;	
 			}break;	
 	}
-
+	
 
 }//FIN DE LA FUNCIÓN
