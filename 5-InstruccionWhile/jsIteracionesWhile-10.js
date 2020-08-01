@@ -36,15 +36,15 @@ function mostrar()
 		{
 			contadorDeNegativos=contadorDeNegativos+1;
 			sumaNegativos=sumaNegativos+numeroIngresado;
-			promedioDeNegativos=sumaNegativos/contadorDeNegativos;
+			//promedioDeNegativos=sumaNegativos/contadorDeNegativos;
 		}else
 		{
 			if(numeroIngresado>0)//positivos
 			{
 				contadorDePositivos=contadorDePositivos+1;
 				sumaPositivos=sumaPositivos+numeroIngresado;
-				promedioDePositivos=sumaPositivos/contadorDePositivos;
-				diferenciaDePositivosYNegativos=sumaPositivos-sumaNegativos;
+				//promedioDePositivos=sumaPositivos/contadorDePositivos;
+				//diferenciaDePositivosYNegativos=sumaPositivos-sumaNegativos;
 			}else
 			{
 				if(numeroIngresado==0)//ceros
@@ -62,14 +62,20 @@ function mostrar()
 		respuesta=prompt("desea continuar?");
 	}//fin del while
 
-	document.write("la suma de negativos es :"+sumaNegativos);
-	document.write("<br>"+"la suma de los positivos es:"+sumaPositivos);
-	document.write("<br>"+"la cantidad de los positivos es:"+contadorDePositivos);
-	document.write("<br>"+"la cantidad de los negativos es:"+contadorDeNegativos);
-	document.write("<br>"+"la cantidad de los ceros es:"+contadorDeCeros);
-	document.write("<br>"+"la cantidad de los pares es:"+contadorDeNumerosPares);
-	document.write("<br>"+"el promedio de los positivos es:"+promedioDePositivos);
-	document.write("<br>"+"el promedio de los negativos es:"+promedioDeNegativos);
-	document.write("<br>"+"la diferencia entre positivos y negativos es:"+diferenciaDePositivosYNegativos);
+	promedioDeNegativos=sumaNegativos/contadorDeNegativos;
+	promedioDePositivos=sumaPositivos/contadorDePositivos;
+	diferenciaDePositivosYNegativos=sumaPositivos-sumaNegativos;
+
+
+
+	document.write("La suma de negativos es :"+sumaNegativos);
+	document.write("<br>"+"La suma de los positivos es:"+sumaPositivos);
+	document.write("<br>"+"La cantidad de los positivos es:"+contadorDePositivos);
+	document.write("<br>"+"La cantidad de los negativos es:"+contadorDeNegativos);
+	document.write("<br>"+"La cantidad de los ceros es:"+contadorDeCeros);
+	document.write("<br>"+"La cantidad de los pares es:"+contadorDeNumerosPares);
+	document.write("<br>"+"El promedio de los positivos es:"+promedioDePositivos);
+	document.write("<br>"+"El promedio de los negativos es:"+promedioDeNegativos);
+	document.write("<br>"+"La diferencia entre positivos y negativos es:"+diferenciaDePositivosYNegativos);
 	//document.write("<br>"+variable); otra forma de mostrar
 }//FIN DE LA FUNCIÓN

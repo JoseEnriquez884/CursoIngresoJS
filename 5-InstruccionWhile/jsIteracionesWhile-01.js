@@ -46,10 +46,26 @@ function mostrar()
 	var nombreIngresado;
 	var sexoIngresado;
 	var respuesta;
+	var contadorDePersonas;
+	var contadorMayoresDeEdad;
+	var contadorMenoresDeEdad;
+	var contadorDeAdolescentes;
+	var BanderaDePrimeraEdad;
+	var edadMasVieja;
+	var edadMasJoven;
+
+	contadorDePersonas=0;
+	contadorMayoresDeEdad=0;
+	contadorMenoresDeEdad=0;
+	contadorDeAdolescentes=0;
+	BanderaDePrimeraEdad="es la primera";
 	respuesta="si";
 
 	while(respuesta=="si")
 	{
+		contadorDePersonas=contadorDePersonas+1;
+		nombreIngresado=prompt("ingrese nombre");
+
 		edadIngresada=prompt("ingrese edad");
 		edadIngresada=parseInt(edadIngresada);
 		while(edadIngresada<0 || edadIngresada>120)
@@ -57,15 +73,56 @@ function mostrar()
 			edadIngresada=prompt("error, ingrese una edad valida");
 			edadIngresada=parseInt(edadIngresada);
 		}
+		//contadores de edad
+		if(edadIngresada>17)
+		{
+			contadorMayoresDeEdad=contadorMayoresDeEdad+1
+		}else
+		{
+			if(edadIngresada>12)
+			{
+				contadorDeAdolescentes=contadorDeAdolescentes+1;
+			}else
+			{
+				contadorMenoresDeEdad=contadorMenoresDeEdad+1;
+			}
+		}
+		//edad mas vieja y edad mas joven
+		if(BanderaDePrimeraEdad=="es la primera")
+		{
+			edadMasJoven=edadIngresada;
+			edadMasVieja=edadIngresada;
+			BanderaDePrimeraEdad="ya paso";
+		}else
+		{
+			if(edadIngresada>edadMasVieja)
+			{
+				edadMasVieja=edadIngresada;
+			}
+			if(edadIngresada<edadMasJoven)
+			{
+				edadMasJoven=edadIngresada;
+			}
+		}
 
-		while()
+		sexoIngresado=prompt("ingrese sexo");
+		while(sexoIngresado!="f" && sexoIngresado!="m")
+		{
+			sexoIngresado=prompt("error, ingrese sexo valido");
+		}
 
 
 
 		respuesta=prompt("desea continuar");
 	}
 	
-	
+	console.log("nombre "+nombreIngresado);
+	console.log("hay "+contadorDePersonas+" personas");
+	console.log("menores de edad "+contadorMenoresDeEdad);
+	console.log("adolescentes "+contadorDeAdolescentes);
+	console.log("mayores "+contadorMayoresDeEdad);
+	console.log("edad mas joven "+edadMasJoven);
+	console.log("edad mas vieja "+edadMasVieja);
 	
 	
 	
