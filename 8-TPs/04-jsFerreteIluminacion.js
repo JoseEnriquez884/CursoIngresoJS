@@ -1,3 +1,4 @@
+//Enriquez Jose
 /*4.	Para el departamento de iluminación:
 Tomando en cuenta que todas las lámparas están en oferta al mismo precio de $35 pesos final.
 A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%. 
@@ -33,7 +34,7 @@ function CalcularPrecio ()
     //calculo el precio bruto sin descuento
     precioBruto=cantidadLamparas*precioLampara;
 
-//             -----Agregado A con SWITCH-----             
+//             -----Ferrete iluminacion con SWITCH-----             
 
     switch(cantidadLamparas)
     {
@@ -96,7 +97,7 @@ function CalcularPrecio ()
     
 
 
-//             -----Agregado A con IF ELSE-----
+//             -----Ferrete iluminacion con IF ELSE-----
 
     //descuentoCalculado=precioBruto*porcentajeDescuento/100;
     /*

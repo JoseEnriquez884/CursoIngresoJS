@@ -43,20 +43,18 @@ function mostrar()
 			{
 				contadorDePositivos=contadorDePositivos+1;
 				sumaPositivos=sumaPositivos+numeroIngresado;
+				if(numeroIngresado%2==0)//cantidad de pares
+				{
+					contadorDeNumerosPares=contadorDeNumerosPares+1;//contador de pares tiene que estar dentro del if que diga >0
+				}
 				//promedioDePositivos=sumaPositivos/contadorDePositivos;
 				//diferenciaDePositivosYNegativos=sumaPositivos-sumaNegativos;
 			}else
-			{
-				if(numeroIngresado==0)//ceros
+			{				
+				if(numeroIngresado==0)//cantidad de ceros
 				{
 					contadorDeCeros=contadorDeCeros+1;
-				}else
-				{
-					if(numeroIngresado%2==0)//pares
-					{
-						contadorDeNumerosPares=contadorDeNumerosPares+1;
-					}
-				}
+				}				
 			}
 		}
 		respuesta=prompt("desea continuar?");

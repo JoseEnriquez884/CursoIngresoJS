@@ -24,6 +24,8 @@ function mostrar()
 
 	situacionSentimental=estadoCivil.value;
 
+	//-------AGREGADO A con SWITCH
+
 	switch(edadIngresada)
 	{
 		case 1:
@@ -97,7 +99,7 @@ function mostrar()
 		case 59:
 		case 60:
 			alert("se responsable");
-		switch(estadoCivil)
+		switch(situacionSentimental)
 		{
 			case "Soltero":
 				alert("a vivir la vida");
@@ -122,7 +124,7 @@ function mostrar()
 	
 	
 	
-	
+	//-----AGREGADO A con IF ELSE--------
 	
 	/*
 	var edadIngresada;

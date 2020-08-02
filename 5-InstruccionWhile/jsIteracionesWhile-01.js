@@ -53,11 +53,16 @@ function mostrar()
 	var BanderaDePrimeraEdad;
 	var edadMasVieja;
 	var edadMasJoven;
+	var contadorDeMujeres;
+	var contadorDeHombres;
+	var contadorMujeresAdolescentes;
 
 	contadorDePersonas=0;
 	contadorMayoresDeEdad=0;
 	contadorMenoresDeEdad=0;
 	contadorDeAdolescentes=0;
+	contadorDeHombres=0;
+	contadorDeMujeres=0;
 	BanderaDePrimeraEdad="es la primera";
 	respuesta="si";
 
@@ -110,6 +115,20 @@ function mostrar()
 		{
 			sexoIngresado=prompt("error, ingrese sexo valido");
 		}
+		if(sexoIngresado=="f")
+		{
+			contadorDeMujeres=contadorDeMujeres+1;
+			if(edadIngresada>12 && edadIngresada<18)
+			{
+				contadorMujeresAdolescentes=contadorMujeresAdolescentes+1;
+			}
+		}else
+		{
+			if(sexoIngresado=="m")
+			{
+				contadorDeHombres=contadorDeHombres+1;
+			}
+		}
 
 
 
@@ -123,6 +142,9 @@ function mostrar()
 	console.log("mayores "+contadorMayoresDeEdad);
 	console.log("edad mas joven "+edadMasJoven);
 	console.log("edad mas vieja "+edadMasVieja);
+	console.log("cantidad Mujeres "+contadorDeMujeres);
+	console.log("cantidad Hombres "+contadorDeHombres);
+	console.log("cantidad mujeres adolescentes "+contadorMujeresAdolescentes);
 	
 	
 	
