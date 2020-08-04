@@ -5,22 +5,22 @@ Agregado while
 Ingrese una edad(0 y 120), nombre y un sexo(f o m)
 informar:
 nivel 1:
-cuantos son en total 
-cuantos mayores de edad 
-cuantos menores de edad 
-cuantos adolescentes de edad 
-la edad mas vieja;
-la edad mas joven;
+cuantos son en total xx
+cuantos mayores de edad xx
+cuantos menores de edad xx
+cuantos adolescentes de edad xx
+la edad mas vieja; xx
+la edad mas joven; xx
 
 nivel:2
 
-cuantas mujeres;
-cuantos hombres;
-cuantas adolescentes mujeres 
-cuantos niños hombres 
-el promedio de edad
-el promedio de edad de las mujeres
-el promedio de edad de los hombres
+cuantas mujeres; xx
+cuantos hombres; xx
+cuantas adolescentes mujeres xx
+cuantos niños hombres xx
+el promedio de edad xx
+el promedio de edad de las mujeres xx
+el promedio de edad de los hombres xx
 la cantidad de edades pares 
 
 nivel 3:
@@ -56,6 +56,13 @@ function mostrar()
 	var contadorDeMujeres;
 	var contadorDeHombres;
 	var contadorMujeresAdolescentes;
+	var cantidadNiñosHombres;
+	var sumadorDeEdades;
+	var promedioDeEdades;
+	var sumadorDeEdadMujeres;
+	var promedioEdadMujeres;
+	var sumadorDeEdadHombres;
+	var promedioEdadHombres;
 
 	contadorDePersonas=0;
 	contadorMayoresDeEdad=0;
@@ -63,6 +70,11 @@ function mostrar()
 	contadorDeAdolescentes=0;
 	contadorDeHombres=0;
 	contadorDeMujeres=0;
+	contadorMujeresAdolescentes=0;
+	cantidadNiñosHombres=0;
+	sumadorDeEdades=0;
+	sumadorDeEdadMujeres=0;
+	sumadorDeEdadHombres=0;
 	BanderaDePrimeraEdad="es la primera";
 	respuesta="si";
 
@@ -109,6 +121,8 @@ function mostrar()
 				edadMasJoven=edadIngresada;
 			}
 		}
+		sumadorDeEdades=sumadorDeEdades+edadIngresada;
+		promedioDeEdades=sumadorDeEdades/contadorDePersonas;
 
 		sexoIngresado=prompt("ingrese sexo");
 		while(sexoIngresado!="f" && sexoIngresado!="m")
@@ -118,6 +132,7 @@ function mostrar()
 		if(sexoIngresado=="f")
 		{
 			contadorDeMujeres=contadorDeMujeres+1;
+			sumadorDeEdadMujeres=sumadorDeEdadMujeres+edadIngresada;
 			if(edadIngresada>12 && edadIngresada<18)
 			{
 				contadorMujeresAdolescentes=contadorMujeresAdolescentes+1;
@@ -127,10 +142,15 @@ function mostrar()
 			if(sexoIngresado=="m")
 			{
 				contadorDeHombres=contadorDeHombres+1;
+				sumadorDeEdadHombres=sumadorDeEdadHombres+edadIngresada;
+				if(edadIngresada<13)
+				{
+					cantidadNiñosHombres=cantidadNiñosHombres+1;
+				}
 			}
 		}
-
-
+		promedioEdadMujeres=sumadorDeEdadMujeres/contadorDeMujeres;
+		promedioEdadHombres=sumadorDeEdadHombres/contadorDeHombres;
 
 		respuesta=prompt("desea continuar");
 	}
@@ -145,8 +165,10 @@ function mostrar()
 	console.log("cantidad Mujeres "+contadorDeMujeres);
 	console.log("cantidad Hombres "+contadorDeHombres);
 	console.log("cantidad mujeres adolescentes "+contadorMujeresAdolescentes);
-	
-	
+	console.log("cantidad niños hombres "+cantidadNiñosHombres);
+	console.log("promedio de edades "+promedioDeEdades);
+	console.log("promedio de edad mujeres "+promedioEdadMujeres);
+	console.log("promedio de edad hombres "+promedioEdadHombres);
 	
 	
 	
