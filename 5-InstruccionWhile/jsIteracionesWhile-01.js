@@ -21,21 +21,20 @@ cuantos niños hombres xx
 el promedio de edad xx
 el promedio de edad de las mujeres xx
 el promedio de edad de los hombres xx
-la cantidad de edades pares 
+la cantidad de edades pares xx
 
 nivel 3:
 
+el nombre de la persona mas vieja xx
+el nombre de la persona mas joven xx
 
-el nombre de la persona mas vieja
-el nombre de la persona mas joven
-
-el sexo de la persona mas vieja
-el sexo de la persona mas joven
+el sexo de la persona mas vieja xx
+el sexo de la persona mas joven xx
 
 nivel dios:
 
-cuantas personas hay con la edad minima
-cuantas personas hay con la edad maxima
+cuantas personas hay con la edad minima xx
+cuantas personas hay con la edad maxima xx
 el nombre de la ultima persona con la mayor edad encontrada
 el nombre de la ultima persona con la menor edad encontrada
 
@@ -63,6 +62,13 @@ function mostrar()
 	var promedioEdadMujeres;
 	var sumadorDeEdadHombres;
 	var promedioEdadHombres;
+	var cantidadEdadesPares;
+	var nombreDelMasViejo;
+	var nombrePersonaMasJoven;
+	var sexoPersonaMasVieja;
+	var sexoPersonaMasJoven;
+	var contadorPersonasEdadMax;
+	var contadorPersonasEdadMin;
 
 	contadorDePersonas=0;
 	contadorMayoresDeEdad=0;
@@ -75,6 +81,9 @@ function mostrar()
 	sumadorDeEdades=0;
 	sumadorDeEdadMujeres=0;
 	sumadorDeEdadHombres=0;
+	cantidadEdadesPares=0;
+	contadorPersonasEdadMax=0;
+	contadorPersonasEdadMin=0;
 	BanderaDePrimeraEdad="es la primera";
 	respuesta="si";
 
@@ -104,28 +113,15 @@ function mostrar()
 				contadorMenoresDeEdad=contadorMenoresDeEdad+1;
 			}
 		}
-		//edad mas vieja y edad mas joven
-		if(BanderaDePrimeraEdad=="es la primera")
+		if(edadIngresada%2==0)//cantidad de edades pares
 		{
-			edadMasJoven=edadIngresada;
-			edadMasVieja=edadIngresada;
-			BanderaDePrimeraEdad="ya paso";
-		}else
-		{
-			if(edadIngresada>edadMasVieja)
-			{
-				edadMasVieja=edadIngresada;
-			}
-			if(edadIngresada<edadMasJoven)
-			{
-				edadMasJoven=edadIngresada;
-			}
+			cantidadEdadesPares=cantidadEdadesPares+1;
 		}
 		sumadorDeEdades=sumadorDeEdades+edadIngresada;
 		promedioDeEdades=sumadorDeEdades/contadorDePersonas;
 
 		sexoIngresado=prompt("ingrese sexo");
-		while(sexoIngresado!="f" && sexoIngresado!="m")
+		while(sexoIngresado!="f" && sexoIngresado!="m")//sexo validado
 		{
 			sexoIngresado=prompt("error, ingrese sexo valido");
 		}
@@ -149,6 +145,34 @@ function mostrar()
 				}
 			}
 		}
+		if(BanderaDePrimeraEdad=="es la primera")
+		{
+			edadMasJoven=edadIngresada;
+			edadMasVieja=edadIngresada;
+			nombrePersonaMasJoven=nombreIngresado;
+			sexoPersonaMasJoven=sexoIngresado;
+			contadorPersonasEdadMin=contadorPersonasEdadMin+1;
+			contadorPersonasEdadMax=contadorPersonasEdadMax+1;
+			BanderaDePrimeraEdad="ya paso";
+		}else
+		{
+			if(edadIngresada>edadMasVieja)
+			{
+				edadMasVieja=edadIngresada;
+				nombreDelMasViejo=nombreIngresado;
+				sexoPersonaMasVieja=sexoIngresado;
+				contadorPersonasEdadMax=contadorPersonasEdadMax+1;
+			}else
+			{
+				if(edadIngresada<edadMasJoven)
+				{
+					edadMasJoven=edadIngresada;
+					contadorPersonasEdadMin=contadorPersonasEdadMin+1;
+					//nombrePersonaMasJoven=nombreIngresado;
+					//sexoPersonaMasJoven=sexoIngresado;
+				}
+			}
+		}
 		promedioEdadMujeres=sumadorDeEdadMujeres/contadorDeMujeres;
 		promedioEdadHombres=sumadorDeEdadHombres/contadorDeHombres;
 
@@ -169,10 +193,13 @@ function mostrar()
 	console.log("promedio de edades "+promedioDeEdades);
 	console.log("promedio de edad mujeres "+promedioEdadMujeres);
 	console.log("promedio de edad hombres "+promedioEdadHombres);
-	
-	
-	
-	
+	console.log("cantidad edades pares "+cantidadEdadesPares);	
+	console.log("nombre del mas viejo "+nombreDelMasViejo);
+	console.log("nombre del mas joven "+nombrePersonaMasJoven);
+	console.log("sexo de la mas vieja "+sexoPersonaMasVieja);
+	console.log("sexo de la mas joven "+sexoPersonaMasJoven);
+	console.log("cantidad personas con edad maxima "+contadorPersonasEdadMax);
+	console.log("cantidad personas con edad minima "+contadorPersonasEdadMin);
 	
 	
 	
