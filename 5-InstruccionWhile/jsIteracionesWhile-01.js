@@ -69,6 +69,8 @@ function mostrar()
 	var sexoPersonaMasJoven;
 	var contadorPersonasEdadMax;
 	var contadorPersonasEdadMin;
+	var nombreUltimaPersonaMayor;
+	var nombreUltimaPersonaMenor;
 
 	contadorDePersonas=0;
 	contadorMayoresDeEdad=0;
@@ -162,6 +164,7 @@ function mostrar()
 				nombreDelMasViejo=nombreIngresado;
 				sexoPersonaMasVieja=sexoIngresado;
 				contadorPersonasEdadMax=contadorPersonasEdadMax+1;
+				nombreUltimaPersonaMayor=nombreIngresado;
 			}else
 			{
 				if(edadIngresada<edadMasJoven)
@@ -200,7 +203,7 @@ function mostrar()
 	console.log("sexo de la mas joven "+sexoPersonaMasJoven);
 	console.log("cantidad personas con edad maxima "+contadorPersonasEdadMax);
 	console.log("cantidad personas con edad minima "+contadorPersonasEdadMin);
-	
+	console.log("ultima persona mayor "+nombreUltimaPersonaMayor);
 	
 	
 	

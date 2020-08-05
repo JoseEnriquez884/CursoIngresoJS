@@ -64,6 +64,7 @@ function mostrar()
 		marca=prompt("ingrese marca");
 		fabricante=prompt("ingrese fabricante");
 
+		//Punto A
 		if(tipo=="alcohol")
 		{
 			if(banderaPrimerAlcohol=="no paso")
