@@ -1,20 +1,159 @@
 //Enriquez Jose
 /*
 a)”bandera a full”
-de una cantidad de espectadores indeterminada debemos tomar lo siguiente datos
-validados:
+de una cantidad de espectadores  indeterminada debemos tomar lo siguiente datos
 sexo
 altura
 edad
 nombre
 se debe informar:
+
 1-el nombre de la más alta de las mujeres xx
-2-el nombre del más viejo de los hombres
-3-el nombre del primer adolescente ingresado, (solo mostrar si y sólo si hay algún
-adolescente)
+2-el nombre del  más viejo de los hombres xx
+3-el nombre del primer adolescente ingresado, (solo mostrar si y sólo si  hay  algún adolescente) xx
+NOTA:pedir datos por "prompt()" y mostrar por console.log()
 */
 function mostrar()
 {
+	var sexoIngresado;
+	var alturaIngresada;
+	var edadIngresada;
+	var nombreIngresado;
+	var respuesta;
+	var banderaDeLaMujerMasAlta;
+	var alturaDeMujerMasAlta;
+	var nombreDeMujerMasAlta;
+	var banderaDelHombreMasViejo;
+	var edadDeHombreMasViejo;
+	var nombreDeHombreMasViejo;
+	var banderaDelPrimerAdolescente;
+	var nombreDePrimerAdolescente;
+	var edadDePrimerAdolescente;
+
+	respuesta="si";
+	banderaDeLaMujerMasAlta="es la primera";
+	banderaDelHombreMasViejo="es el primero";
+	banderaDelPrimerAdolescente="primer adolescente";
+
+	while(respuesta=="si")
+	{
+		sexoIngresado=prompt("ingrese sexo");
+		while(isNaN(sexoIngresado)==false || sexoIngresado!="f" && sexoIngresado!="m")
+		{
+			sexoIngresado=prompt("error, reingrese sexo");
+		}
+
+		alturaIngresada=prompt("ingrese altura");
+		alturaIngresada=parseInt(alturaIngresada);
+		while(isNaN(alturaIngresada)==true)
+		{
+			alturaIngresada=prompt("error, reingrese altura");
+			alturaIngresada=parseInt(alturaIngresada);
+		}
+
+		edadIngresada=prompt("ingrese edad");
+		edadIngresada=parseInt(edadIngresada);
+		while(isNaN(edadIngresada)==true)
+		{
+			edadIngresada=prompt("error, reingrese edad");
+			edadIngresada=parseInt(edadIngresada);
+		}
+
+		nombreIngresado=prompt("ingrese nombre");
+		while(isNaN(nombreIngresado)==false)
+		{
+			nombreIngresado=prompt("error, reingrese nombre");
+		}
+
+		//punto 1 
+		if(sexoIngresado=="f")
+		{
+			if(banderaDeLaMujerMasAlta=="es la primera")
+			{
+				alturaDeMujerMasAlta=alturaIngresada;
+				nombreDeMujerMasAlta=nombreIngresado;
+				banderaDeLaMujerMasAlta="ya paso";
+			}else
+			{
+				if(alturaIngresada>alturaDeMujerMasAlta)
+				{
+					alturaDeMujerMasAlta=alturaIngresada;
+					nombreDeMujerMasAlta=nombreIngresado;
+				}
+			}
+			//punto 2
+		}else
+		{
+			if(banderaDelHombreMasViejo=="es el primero")
+			{
+				edadDeHombreMasViejo=edadIngresada;
+				nombreDeHombreMasViejo=nombreIngresado;
+				banderaDelHombreMasViejo="ya no lo es";
+			}else
+			{
+				if(edadIngresada>edadDeHombreMasViejo)
+				{
+					edadDeHombreMasViejo=edadIngresada;
+					nombreDeHombreMasViejo=nombreIngresado;
+				}
+			}
+		}
+
+		if(edadIngresada>12 && edadIngresada<18)
+		{
+			if(banderaDelPrimerAdolescente=="primer adolescente")
+			{
+				edadDePrimerAdolescente=edadIngresada;
+				nombreDePrimerAdolescente=nombreIngresado;
+				banderaDelPrimerAdolescente="ahora no lo es";
+			}
+		}
+		
+		respuesta=prompt("continua?");
+	}
+
+	if(banderaDeLaMujerMasAlta!="es la primera")
+	{
+		console.log("la mujer mas alta se llama "+nombreDeMujerMasAlta+" y mide "+alturaDeMujerMasAlta);
+	}else
+	{
+		console.log("no hay mujeres");
+	}
+
+	if(banderaDelHombreMasViejo!="es el primero")
+	{
+		console.log("el hombre mas viejo se llama "+nombreDeHombreMasViejo+" y tiene "+edadDeHombreMasViejo+" años");
+	}else
+	{
+		console.log("no hay hombres");
+	}
+
+	if(banderaDelPrimerAdolescente!="primer adolescente")
+	{
+		console.log("el primer adolescente se llama "+nombreDePrimerAdolescente+" y tiene "+edadDePrimerAdolescente+" años");
+	}else
+	{
+		console.log("no hay adolescentes");
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*
 	var respuesta;
 	var sexoIngresado;
 	var alturaIngresada;
@@ -144,7 +283,7 @@ function mostrar()
 	
 	
 	
-	
+	*/
 	
 	
 	
