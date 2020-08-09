@@ -13,89 +13,133 @@ f) El tipo mas caro
 */
 function mostrar()
 {
-  var contador;
   var respuesta;
   var tipoIngresado;
   var cantidadDeBolsas;
-  var precioPorBolsa;
-  var porcentajeDeDescuento;
-  var precioBrutoSinDescuento;
+  var precioPorBolsaIngresado;
+  var acumuladorDeBolsas;
+  var precioBrutoTotal;
+  var precioBrutoProducto;
+  var porcentajeDescuento;
   var descuentoCalculado;
   var precioConDescuento;
-  var maximaCantidadDeBolsas;
-  var tipoConMaximaCantidadDeBolsas;
+  var acumuladorCal;
+  var acumuladorCemento;
+  var acumuladorArena;
+  var tipoConMasUnidades;
+  var banderaDelPrimerProducto;
   var tipoMasCaro;
-  var precioDeTipoMasCaro;
+  var tipoMasCaroPrecio;
 
-  contador=0;
   respuesta="si";
+  acumuladorDeBolsas=0;
+  precioBrutoTotal=0;
+  acumuladorCal=0;
+  acumuladorCemento=0;
+  acumuladorArena=0;
+  banderaDelPrimerProducto="es el primero"
 
   while(respuesta=="si")
   {
     tipoIngresado=prompt("ingrese tipo");
     while(isNaN(tipoIngresado)==false || tipoIngresado!="arena" && tipoIngresado!="cal" && tipoIngresado!="cemento")
     {
-      tipoIngresado=prompt("error, reingrese tipo valido");
+      tipoIngresado=prompt("error, reingrese tipo");
     }
-
     cantidadDeBolsas=prompt("ingrese cantidad de bolsas");
     cantidadDeBolsas=parseInt(cantidadDeBolsas);
-    while(isNaN(cantidadDeBolsas)==true || cantidadDeBolsas<0)
+    while(isNaN(cantidadDeBolsas)==true || cantidadDeBolsas<1)
     {
-      cantidadDeBolsas=prompt("error, ingrese cantidad de bolsas valida");
+      cantidadDeBolsas=prompt("error, reingrese cantidad de bolsas");
       cantidadDeBolsas=parseInt(cantidadDeBolsas);
     }
-
-    precioPorBolsa=prompt("ingrese precio por bolsa");
-    precioPorBolsa=parseInt(precioPorBolsa);
-    while(isNaN(precioPorBolsa)==true || precioPorBolsa<1)
+    precioPorBolsaIngresado=prompt("ingrese precio por bolsa");
+    precioPorBolsaIngresado=parseInt(precioPorBolsaIngresado);
+    while(isNaN(precioPorBolsaIngresado)==true || precioPorBolsaIngresado<1)
     {
-      precioPorBolsa=prompt("error, reingrese precio por bolsa valido");
-      precioPorBolsa=parseInt(precioPorBolsa);
+      precioPorBolsaIngresado=prompt("error, reingrese precio por bolsa");
+      precioPorBolsaIngresado=parseInt(precioPorBolsaIngresado);
     }
 
-    if(contador==0)
+    acumuladorDeBolsas=acumuladorDeBolsas+cantidadDeBolsas;
+    precioBrutoProducto=precioPorBolsaIngresado*cantidadDeBolsas;
+    precioBrutoTotal=precioBrutoTotal+precioBrutoProducto;//acumulador
+
+    if(banderaDelPrimerProducto=="es el primero")
     {
-      maximaCantidadDeBolsas=cantidadDeBolsas;
-      tipoConMaximaCantidadDeBolsas=tipoIngresado;
-      precioDeTipoMasCaro=precioPorBolsa;
+      banderaDelPrimerProducto="ya no lo es";
+      tipoMasCaroPrecio=precioPorBolsaIngresado;
       tipoMasCaro=tipoIngresado;
     }else
     {
-      if(cantidadDeBolsas>maximaCantidadDeBolsas)
+      if(precioPorBolsaIngresado>tipoMasCaroPrecio)
       {
-       maximaCantidadDeBolsas=cantidadDeBolsas;
-       tipoConMaximaCantidadDeBolsas=tipoIngresado;
-      }
-      if(precioPorBolsa>precioDeTipoMasCaro)
-      {
-        precioDeTipoMasCaro=precioPorBolsa;
+        tipoMasCaroPrecio=precioPorBolsaIngresado;
         tipoMasCaro=tipoIngresado;
       }
     }
 
-    contador=contador+1;
-    respuesta=prompt("continua?");
 
+    switch(tipoIngresado)
+    {
+      case "arena":
+        acumuladorArena=acumuladorArena+cantidadDeBolsas;
+        break;
+      case "cal":
+        acumuladorCal=acumuladorCal+cantidadDeBolsas;
+        break;
+      case "cemento":
+        acumuladorCemento=acumuladorCemento+cantidadDeBolsas;
+        break;
+    }
+    
+    respuesta=prompt("desea continuar?");
   }
 
-  if(cantidadDeBolsas>30)
+  if(acumuladorArena>acumuladorCal && acumuladorArena>acumuladorCemento)
   {
-    porcentajeDeDescuento=25;
+    tipoConMasUnidades="arena";
   }else
   {
-    if(cantidadDeBolsas>10)
+    if(acumuladorCal>acumuladorCemento)
     {
-      porcentajeDeDescuento=15;
+      tipoConMasUnidades="cal";
+    }else
+    {
+      tipoConMasUnidades="cemento";
     }
   }
-  precioBrutoSinDescuento=cantidadDeBolsas*precioPorBolsa;
-  descuentoCalculado=precioBrutoSinDescuento*porcentajeDeDescuento/100;
-  precioConDescuento=precioBrutoSinDescuento-descuentoCalculado;
-  
-  console.log("el precio bruto sin descuento a pagar es de: $"+precioBrutoSinDescuento);
-  console.log("el precio con descuento es de: $"+precioConDescuento);
-  console.log("el tipo con mas cantidad de bolsas es: "+tipoConMaximaCantidadDeBolsas+" y tiene: "+maximaCantidadDeBolsas+" bolsas");
-  console.log("el tipo mas caro es: "+tipoMasCaro+" y cuesta $"+precioDeTipoMasCaro);
+
+
+
+  if(acumuladorDeBolsas>30)
+  {
+    porcentajeDescuento=25;
+  }else
+  {
+    if(acumuladorDeBolsas>10)
+    {
+      porcentajeDescuento=15;
+    }else
+    {
+      porcentajeDescuento=0;
+    }
+  }
+
+  if(porcentajeDescuento!=0)
+  {
+    descuentoCalculado=precioBrutoTotal*porcentajeDescuento/100;
+    precioConDescuento=precioBrutoTotal-descuentoCalculado;
+    console.log("pagar con descuento:"+precioConDescuento);
+  }
+
+
+  //El importe total a pagar , bruto sin descuento
+  console.log("bruto sin descuento:"+precioBrutoTotal);
+
+  console.log("el tipo mas comprado:"+tipoConMasUnidades);
+
+  console.log("el tipo mas caro:"+tipoMasCaro);
+
 }
 

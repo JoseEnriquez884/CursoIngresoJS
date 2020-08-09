@@ -6,12 +6,155 @@ el precio (validar entre 100 y 300),
 la cantidad de unidades (no puede ser 0 o negativo y no debe superar las 1000 unidades),
 la Marca y el fabricante.
 Se debe Informar al usuario lo siguiente:
-a) Del más barato de los alcohol, la cantidad de unidades y el fabricante xx
+a) Del más barato de los alcohol, la cantidad de unidades y el fabricante XX
 b) Del tipo con mas unidades, el promedio por compra
 c) Cuántas unidades de jabones hay en total
 */ 
 function mostrar()
 {
+	var contador;
+	var tipoIngresado;
+	var precioIngresado;
+	var cantidadDeUnidadesIngresada;
+	var marcaIngresada;
+	var fabricanteIngresado;
+	var banderaDePrimerAlcohol;
+	var alcoholMasBarato;
+	var minimoAlcoholPrecioCantidad;
+	var minimoAlcoholPrecioFabricante;
+	var contadorAlcohol;
+	var contadorBarbijo;
+	var contadorJabon;
+	var acumuladorAlcoholUnidades;
+	var acumuladorBarbijoUnidades;
+	var acumuladorJabonUnidades;
+	var promedioDeCompra;
+
+	contador=0;
+	banderaDePrimerAlcohol="primer alcohol";
+	contadorAlcohol=0;
+	contadorBarbijo=0;
+	contadorJabon=0;
+	acumuladorAlcoholUnidades=0;
+	acumuladorBarbijoUnidades=0;
+	acumuladorJabonUnidades=0;
+
+
+	while(contador<5)
+	{
+		tipoIngresado=prompt("ingrese tipo");
+		while(isNaN(tipoIngresado)==false || tipoIngresado!="barbijo" && tipoIngresado!="jabon" && tipoIngresado!="alcohol")
+		{
+			tipoIngresado=prompt("error, reingrese tipo");
+		}
+		precioIngresado=prompt("ingrese precio");
+		precioIngresado=parseInt(precioIngresado);
+		while(isNaN(precioIngresado)==true || precioIngresado<100 || precioIngresado>300)
+		{
+			precioIngresado=prompt("error, reingrese precio");
+			precioIngresado=parseInt(precioIngresado);	
+		}
+		cantidadDeUnidadesIngresada=prompt("ingrese cantidad de unidades");
+		cantidadDeUnidadesIngresada=parseInt(cantidadDeUnidadesIngresada);
+		while(isNaN(cantidadDeUnidadesIngresada)==true || cantidadDeUnidadesIngresada<1 || cantidadDeUnidadesIngresada>1000)
+		{
+			cantidadDeUnidadesIngresada=prompt("error, reingrese cantidad de unidades");
+			cantidadDeUnidadesIngresada=parseInt(cantidadDeUnidadesIngresada);
+		}
+		marcaIngresada=prompt("ingrese marca");
+		while(isNaN(marcaIngresada)==false)
+		{
+			marcaIngresada=prompt("error, reingrese marca");
+		}
+		fabricanteIngresado=prompt("ingrese fabricante");
+		while(isNaN(fabricanteIngresado)==false)
+		{
+			fabricanteIngresado=prompt("error, reingrese fabricante");
+		}
+
+		//punto a
+		if(tipoIngresado=="alcohol")
+		{
+			if(banderaDePrimerAlcohol=="primer alcohol")
+			{
+				banderaDePrimerAlcohol="ya no es primero";
+				alcoholMasBarato=precioIngresado;
+				minimoAlcoholPrecioCantidad=cantidadDeUnidadesIngresada;
+				minimoAlcoholPrecioFabricante=fabricanteIngresado;
+			}else
+			{
+				if(precioIngresado<alcoholMasBarato)
+				{
+					alcoholMasBarato=precioIngresado;
+					minimoAlcoholPrecioCantidad=cantidadDeUnidadesIngresada;
+					minimoAlcoholPrecioFabricante=fabricanteIngresado;
+				}
+			}
+		}
+
+		//punto b
+		switch(tipoIngresado)
+		{
+			case "alcohol":
+				contadorAlcohol++;
+				acumuladorAlcoholUnidades=acumuladorAlcoholUnidades+cantidadDeUnidadesIngresada;
+				break;
+			case "barbijo":
+				contadorBarbijo++;
+				acumuladorBarbijoUnidades=acumuladorBarbijoUnidades+cantidadDeUnidadesIngresada;
+				break;
+			case "jabon":
+				contadorJabon++;
+				//punto c
+				acumuladorJabonUnidades=acumuladorJabonUnidades+cantidadDeUnidadesIngresada;
+				break;
+		}
+
+		contador++;
+	}
+	//saco el promedio del tipo con mas unidades
+	if(acumuladorAlcoholUnidades>acumuladorBarbijoUnidades && acumuladorAlcoholUnidades>acumuladorJabonUnidades)
+	{
+		promedioDeCompra=acumuladorAlcoholUnidades/contadorAlcohol;
+	}else
+	{
+		if(acumuladorBarbijoUnidades>acumuladorJabonUnidades)
+		{
+			promedioDeCompra=acumuladorBarbijoUnidades/contadorBarbijo;
+		}else
+		{
+			promedioDeCompra=acumuladorJabonUnidades/contadorJabon;
+		}
+	}
+	
+	
+	//mostrar
+	if(banderaDePrimerAlcohol!="primer alcohol")
+	{
+		console.log("el alcohol mas barato cuesta $"+alcoholMasBarato+", hay "+minimoAlcoholPrecioCantidad+" unidades y el fabricante es "+minimoAlcoholPrecioFabricante);	
+	}else
+	{
+		console.log("no hay alcoholes");
+	}
+
+	console.log("el promedio de compra del tipo con mas unidades es "+promedioDeCompra);
+
+	if(contadorJabon!=0)
+	{
+		console.log("hay "+acumuladorJabonUnidades+" jabones");
+	}else
+	{
+		console.log("no hay jabones");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	//declaracion de variables
 	var contador;
 	var tipoIngresado;
@@ -144,7 +287,7 @@ function mostrar()
 
 
 
-
+	*/
 
 
 
@@ -274,7 +417,7 @@ function mostrar()
 	}
 	
 
-*/
+	*/
 
 
 
