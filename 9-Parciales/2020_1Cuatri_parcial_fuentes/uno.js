@@ -19,6 +19,150 @@ function mostrar()
 	var marcaIngresada;
 	var fabricanteIngresado;
 	var banderaDePrimerAlcohol;
+	var alcoholMasBaratoPrecio;
+	var alcoholMasBaratoCantidad;
+	var alcoholMasBaratoFabricante;
+	var contadorAlcohol;
+	var contadorJabon;
+	var contadorBarbijo;
+	var acumuladorAlcohol;
+	var acumuladorJabon;
+	var acumuladorBarbijo;
+	var promedioDeCompra;
+
+	contador=0;
+	banderaDePrimerAlcohol="es el primero";
+	contadorAlcohol=0;
+	contadorJabon=0;
+	contadorBarbijo=0;
+	acumuladorAlcohol=0;
+	acumuladorJabon=0;
+	acumuladorBarbijo=0;
+
+	while(contador<5)
+	{
+		tipoIngresado=prompt("ingrese tipo");
+		while(tipoIngresado!="barbijo" && tipoIngresado!="jabon" && tipoIngresado!="alcohol")
+		{
+			tipoIngresado=prompt("error, reingrese tipo");
+		}
+		precioIngresado=prompt("ingrese precio");
+		precioIngresado=parseInt(precioIngresado);
+		while(isNaN(precioIngresado)==true || precioIngresado<100 || precioIngresado>300)
+		{
+			precioIngresado=prompt("error, reingrese precio");
+			precioIngresado=parseInt(precioIngresado);
+		}
+		cantidadDeUnidadesIngresada=prompt("ingrese cantidad de unidades");
+		cantidadDeUnidadesIngresada=parseInt(cantidadDeUnidadesIngresada);
+		while(isNaN(cantidadDeUnidadesIngresada)==true || cantidadDeUnidadesIngresada<1 || cantidadDeUnidadesIngresada>1000)
+		{
+			cantidadDeUnidadesIngresada=prompt("error, reingrese cantidad de unidades");
+			cantidadDeUnidadesIngresada=parseInt(cantidadDeUnidadesIngresada);
+		}
+		marcaIngresada=prompt("ingrese marca");
+		while(isNaN(marcaIngresada)==false)
+		{
+			marcaIngresada=prompt("error, reingrese marca");
+		}
+		fabricanteIngresado=prompt("ingrese fabricante");
+		while(isNaN(fabricanteIngresado)==false)
+		{
+			fabricanteIngresado=prompt("error, reingrese fabricante");
+		}
+
+		//a) Del más barato de los alcohol, la cantidad de unidades y el fabricante
+		if(tipoIngresado=="alcohol")
+		{
+			if(banderaDePrimerAlcohol=="es el primero")
+			{
+				banderaDePrimerAlcohol="ya no es el primero";
+				alcoholMasBaratoPrecio=precioIngresado;
+				alcoholMasBaratoCantidad=cantidadDeUnidadesIngresada;
+				alcoholMasBaratoFabricante=fabricanteIngresado;
+			}else
+			{
+				if(precioIngresado<alcoholMasBaratoPrecio)
+				{
+					alcoholMasBaratoPrecio=precioIngresado;
+					alcoholMasBaratoCantidad=cantidadDeUnidadesIngresada;
+					alcoholMasBaratoFabricante=fabricanteIngresado;	
+				}
+			}
+			
+		}
+		//cuento los tipos y los acumulo
+		switch(tipoIngresado)
+		{
+			case "alcohol":
+				contadorAlcohol++;
+				acumuladorAlcohol=acumuladorAlcohol+cantidadDeUnidadesIngresada;
+				break;
+			case "barbijo":
+				contadorBarbijo++;
+				acumuladorBarbijo=acumuladorBarbijo+cantidadDeUnidadesIngresada;
+				break;
+			case "jabon":
+				contadorJabon++;
+				acumuladorJabon=acumuladorJabon+cantidadDeUnidadesIngresada;
+				break;
+		}
+		
+		contador++;
+	}
+
+	//hago el promedio de compra segun corresponda
+	if(acumuladorAlcohol>acumuladorBarbijo && acumuladorAlcohol>acumuladorJabon)
+	{
+		promedioDeCompra=acumuladorAlcohol/contadorAlcohol;
+	}else
+	{
+		if(acumuladorBarbijo>acumuladorJabon)
+		{
+			promedioDeCompra=acumuladorBarbijo/contadorBarbijo;
+		}else
+		{
+			promedioDeCompra=acumuladorJabon/contadorJabon;
+		}
+	}
+	
+	if(banderaDePrimerAlcohol!="es el primero")
+	{
+		console.log("alcohol mas barato precio: "+alcoholMasBaratoPrecio);
+		console.log("cantidad de unidades de alcohol mas barato:"+alcoholMasBaratoCantidad);
+		console.log("fabricante de alcohol mas barato:"+alcoholMasBaratoFabricante);
+	}else
+	{
+		console.log("no hay alcoholes");
+	}
+
+	console.log("promedio por compra del tipo con mas unidades: "+promedioDeCompra);
+
+	if(contadorJabon!=0)
+	{
+		console.log("cantidad de unidades de jabon: "+acumuladorJabon);
+	}else
+	{
+		console.log("no hay jabones");
+	}
+	
+	
+
+
+
+
+
+
+
+
+	/*
+	var contador;
+	var tipoIngresado;
+	var precioIngresado;
+	var cantidadDeUnidadesIngresada;
+	var marcaIngresada;
+	var fabricanteIngresado;
+	var banderaDePrimerAlcohol;
 	var alcoholMasBarato;
 	var minimoAlcoholPrecioCantidad;
 	var minimoAlcoholPrecioFabricante;
@@ -147,7 +291,7 @@ function mostrar()
 		console.log("no hay jabones");
 	}
 	
-	
+	*/
 	
 	
 	
